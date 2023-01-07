@@ -1,0 +1,28 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string xorEncryptDecrypt(string toEncrypt, char key) {
+  for (int i = 0; i < toEncrypt.size(); i++) {
+    toEncrypt[i] = toEncrypt[i] ^ key;
+  }
+  return toEncrypt;
+}
+
+int main() {
+  string plaintext = "Hello, world!";
+  char key = 'X';
+
+  cout << "Plaintext: " << plaintext << endl;
+
+  // Enkripsi plaintext
+  string ciphertext = xorEncryptDecrypt(plaintext, key);
+  cout << "Ciphertext: " << ciphertext << endl;
+
+  // Deskripsi ciphertext
+  string decrypted = xorEncryptDecrypt(ciphertext, key);
+  cout << "Decrypted: " << decrypted << endl;
+
+  return 0;
+}
